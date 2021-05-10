@@ -1,6 +1,6 @@
 # LettuceWrap-Standalone
 
-LettuceWrap is a lightweight Bukkit plugin designed to make utilizing PubSub messaging from lettuce.io clean and easy. For more information, see [lettuce.io](http://lettuce.io). This libraru is only designed to subscribe (listen) to channels and publish messages to channels. Patterns and listening for subscribing/unsubscribing is NOT supported. This library may be expanded in the future to accommodate more redis features.
+LettuceWrap is a lightweight Bukkit plugin designed to make utilizing PubSub messaging from lettuce.io clean and easy. For more information, see [lettuce.io](http://lettuce.io). This library is only designed to subscribe (listen) to channels and publish messages to channels. Patterns and listening for subscribing/unsubscribing is NOT supported. This library may be expanded in the future to accommodate more redis features.
 
 &#9888;&nbsp;*Note: This dependency must be shaded into your plugin to work correctly! Unlike the original LettuceWrap plugin, this is not a Bukkit plugin and will not work by itself.*
 
