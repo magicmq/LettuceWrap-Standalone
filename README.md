@@ -1,3 +1,7 @@
+![Sonatype Nexus (Releases)](https://img.shields.io/nexus/r/dev.magicmq/lettucewrap-standalone?nexusVersion=3&server=https%3A%2F%2Frepo.magicmq.dev)
+![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/magicmq/LettuceWrap-Standalone/Java%20CI%20with%20Maven)
+[![Apache 2.0 License](https://img.shields.io/badge/license-Apache%202.0-blue)](LICENSE)
+
 # LettuceWrap-Standalone
 
 LettuceWrap is a lightweight Bukkit plugin designed to make utilizing PubSub messaging from lettuce.io clean and easy. For more information, see [lettuce.io](http://lettuce.io). This library is only designed to subscribe (listen) to channels and publish messages to channels. Patterns and listening for subscribing/unsubscribing is NOT supported. This library may be expanded in the future to accommodate more redis features.
