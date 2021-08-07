@@ -20,7 +20,7 @@ jobs:
     - name: Maven cleanup
       run: mvn --batch-mode --update-snapshots verify
     - name: Copy artifacts to staging directory
-      run: mkdir staging && rsync -ar --exclude 'original*' target/*.jar staging
+      run: mkdir staging && rsync -ar --exclude 'original*' lettucewrap-standalone-bukkit/target/*.jar staging && rsync -ar --exclude 'original*' lettucewrap-standalone-bungee/target/*.jar staging && rsync -ar --exclude 'original*' lettucewrap-standalone-common/target/*.jar staging
     - name: Fetch tag name
       id: tagname
       uses: actions/github-script@v3
