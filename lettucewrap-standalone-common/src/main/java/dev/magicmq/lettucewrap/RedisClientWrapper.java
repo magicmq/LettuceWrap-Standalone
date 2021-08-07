@@ -1,9 +1,9 @@
 package dev.magicmq.lettucewrap;
 
+import dev.magicmq.lettucewrap.exception.ChannelAlreadyRegisteredException;
 import io.lettuce.core.ClientOptions;
 import io.lettuce.core.RedisClient;
 import io.lettuce.core.pubsub.StatefulRedisPubSubConnection;
-import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -12,9 +12,9 @@ import java.util.HashMap;
 /**
  * A wrapper class that wraps lettuce's RedisClient class.
  */
-public class RedisClientWrapper {
+public class RedisClientWrapper<T> {
 
-    private JavaPlugin owner;
+    private T owner;
 
     private RedisClient client;
     private StatefulRedisPubSubConnection<String, String> connectionIncoming;
@@ -26,7 +26,7 @@ public class RedisClientWrapper {
      * @param owner The plugin creating this client. This should be the plugin's main class
      * @param host The hostname/IP of the redis server to connect to
      */
-    public RedisClientWrapper(JavaPlugin owner, String host) {
+    public RedisClientWrapper(T owner, String host) {
         this(owner, host, 6379, null, 0, (String[]) null);
     }
 
@@ -36,7 +36,7 @@ public class RedisClientWrapper {
      * @param host The hostname/IP of the redis server to connect to
      * @param port The port of the redis server to connect to, default is 6379
      */
-    public RedisClientWrapper(JavaPlugin owner, String host, int port) {
+    public RedisClientWrapper(T owner, String host, int port) {
         this(owner, host, port, null, 0, (String[]) null);
     }
 
@@ -46,7 +46,7 @@ public class RedisClientWrapper {
      * @param host The hostname/IP of the redis server to connect to
      * @param password The password of the redis server, or null if there is no password
      */
-    public RedisClientWrapper(JavaPlugin owner, String host, String password) {
+    public RedisClientWrapper(T owner, String host, String password) {
         this(owner, host, 6379, password, 0, (String[]) null);
     }
 
@@ -57,7 +57,7 @@ public class RedisClientWrapper {
      * @param port The port of the redis server to connect to, default is 6379
      * @param password The password of the redis server, or null if there is no password
      */
-    public RedisClientWrapper(JavaPlugin owner, String host, int port, String password) {
+    public RedisClientWrapper(T owner, String host, int port, String password) {
         this(owner, host, port, password, 0, (String[]) null);
     }
 
@@ -69,7 +69,7 @@ public class RedisClientWrapper {
      * @param password The password of the redis server, or null if there is no password
      * @param database The database that should be connected to on the redis server, default is 0
      */
-    public RedisClientWrapper(JavaPlugin owner, String host, int port, String password, int database) {
+    public RedisClientWrapper(T owner, String host, int port, String password, int database) {
         this(owner, host, port, password, database, (String[]) null);
     }
 
@@ -82,7 +82,7 @@ public class RedisClientWrapper {
      * @param database The database that should be connected to on the redis server, default is 0
      * @param options Any special options that should be included in the redis URL. Format for each option should be "option=value", default is null (no options)
      */
-    public RedisClientWrapper(JavaPlugin owner, String host, int port, String password, int database, String... options) {
+    public RedisClientWrapper(T owner, String host, int port, String password, int database, String... options) {
         this.owner = owner;
 
         StringBuilder redisURL = new StringBuilder();

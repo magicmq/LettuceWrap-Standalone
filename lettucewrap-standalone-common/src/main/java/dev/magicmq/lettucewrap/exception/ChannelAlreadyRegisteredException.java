@@ -1,4 +1,4 @@
-package dev.magicmq.lettucewrap;
+package dev.magicmq.lettucewrap.exception;
 
 public class ChannelAlreadyRegisteredException extends RuntimeException {
 

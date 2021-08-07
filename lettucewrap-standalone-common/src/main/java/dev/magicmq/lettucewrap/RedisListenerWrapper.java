@@ -1,16 +1,14 @@
 package dev.magicmq.lettucewrap;
 
 import io.lettuce.core.pubsub.RedisPubSubListener;
-import org.bukkit.Bukkit;
-import org.bukkit.plugin.java.JavaPlugin;
 
 /**
  * A wrapper designed to simplify receiving messages from redis PubSub. Handling of asynchronous message receiving to synchronous method calling is done automatically. The {@link RedisListenerWrapper#messageReceived(String)} method is called synchronously.
  */
-public abstract class RedisListenerWrapper implements RedisPubSubListener<String, String> {
+public abstract class RedisListenerWrapper<T> implements RedisPubSubListener<String, String> {
 
     private String channel;
-    private JavaPlugin owner;
+    private T owner;
 
     /**
      *
@@ -24,12 +22,7 @@ public abstract class RedisListenerWrapper implements RedisPubSubListener<String
      * This method should not be overridden or the functionality of the wrapped listener will be lost.
      * @see <a href="https://lettuce.io/core/release/api/">lettuce.io JavaDocs</a>
      */
-    @Override
-    public void message(String channel, String message) {
-        if (this.channel.equals(channel)) {
-            Bukkit.getScheduler().runTask(owner, () -> messageReceived(message));
-        }
-    }
+    public abstract void message(String channel, String message);
 
     /**
      * Called when a message is received on the channel to which this listener belongs. This method will automatically be called synchronously, even though the message is received asynchronously.
@@ -81,7 +74,7 @@ public abstract class RedisListenerWrapper implements RedisPubSubListener<String
      * Get the owning plugin of this listener.
      * @return The owning plugin of this listener
      */
-    public JavaPlugin getOwner() {
+    public T getOwner() {
         return owner;
     }
 
@@ -89,7 +82,7 @@ public abstract class RedisListenerWrapper implements RedisPubSubListener<String
      * For internal use only.
      * @param owner The owning plugin to which this listener should be set
      */
-    protected void setOwner(JavaPlugin owner) {
+    protected void setOwner(T owner) {
         this.owner = owner;
     }
 
