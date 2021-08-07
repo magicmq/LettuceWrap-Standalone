@@ -83,6 +83,11 @@ public class RedisClientWrapper<T> {
      * @param options Any special options that should be included in the redis URL. Format for each option should be "option=value", default is null (no options)
      */
     public RedisClientWrapper(T owner, String host, int port, String password, int database, String... options) {
+        if (owner == null)
+            throw new IllegalArgumentException("Owner cannot be null!");
+        if (host == null || host.isEmpty())
+            throw new IllegalArgumentException("Host cannot be null or an empty string!");
+
         this.owner = owner;
 
         StringBuilder redisURL = new StringBuilder();
