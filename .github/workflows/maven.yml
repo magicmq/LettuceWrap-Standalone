@@ -23,7 +23,7 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Copy artifacts to staging directory
-      run: mkdir staging && rsync -ar --exclude 'original*' target/*.jar staging
+      run: mkdir staging && rsync -ar --exclude 'original*' lettucewrap-standalone-bukkit/target/*.jar staging && rsync -ar --exclude 'original*' lettucewrap-standalone-bungee/target/*.jar staging && rsync -ar --exclude 'original*' lettucewrap-standalone-common/target/*.jar staging
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
