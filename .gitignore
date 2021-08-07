@@ -1,4 +1,13 @@
 /target/
+/lettucewrap-standalone-bukkit/target/
+/lettucewrap-standalone-bungee/target/
+/lettucewrap-standalone-common/target/
 /.idea/
 /dependency-reduced-pom.xml
 /lettucewrap-standalone.iml
+/lettucewrap-standalone-bukkit/dependency-reduced-pom.xml
+/lettucewrap-standalone-bukkit/lettucewrap-standalone-bukkit.iml
+/lettucewrap-standalone-bungee/dependency-reduced-pom.xml
+/lettucewrap-standalone-bungee/lettucewrap-standalone-bungee.iml
+/lettucewrap-standalone-common/dependency-reduced-pom.xml
+/lettucewrap-standalone-common/lettucewrap-standalone-common.iml
