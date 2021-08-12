@@ -3,7 +3,7 @@
     <parent>
         <artifactId>lettucewrap-standalone</artifactId>
         <groupId>dev.magicmq</groupId>
-        <version>1.0.2-SNAPSHOT</version>
+        <version>1.1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -18,7 +18,7 @@
         <dependency>
             <groupId>dev.magicmq</groupId>
             <artifactId>lettucewrap-standalone-common</artifactId>
-            <version>1.0.2-SNAPSHOT</version>
+            <version>1.1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -55,12 +55,6 @@
                 </executions>
                 <configuration>
                     <finalName>${project.name}-${project.version}</finalName>
-                    <relocations>
-                        <relocation>
-                            <pattern>io.lettuce</pattern>
-                            <shadedPattern>dev.magicmq.lettucewrap.libs.io.lettuce</shadedPattern>
-                        </relocation>
-                    </relocations>
                 </configuration>
             </plugin>
             <plugin>
