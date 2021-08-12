@@ -1,20 +1,21 @@
-package dev.magicmq.lettucewrap.bukkit;
+package dev.magicmq.lettucewrap.bungee;
 
 import dev.magicmq.lettucewrap.RedisClientWrapper;
-import org.bukkit.plugin.java.JavaPlugin;
+import dev.magicmq.lettucewrap.RedisListenerWrapper;
+import net.md_5.bungee.api.plugin.Plugin;
 
 /**
- * A wrapper class that wraps lettuce's RedisClient class. This class should only be used with Bukkit plugins.
+ * A wrapper class that wraps lettuce's RedisClient class. This class should only be used with BungeeCord plugins.
  * @see RedisClientWrapper
  */
-public class BukkitClientWrapper extends RedisClientWrapper<JavaPlugin> {
+public class BungeeRedisClientWrapper extends RedisClientWrapper<Plugin> {
 
     /**
      * Initialize a new redis client wrapper.
      * @param owner The plugin creating this client. This should be the plugin's main class
      * @param host The hostname/IP of the redis server to connect to
      */
-    public BukkitClientWrapper(JavaPlugin owner, String host) {
+    public BungeeRedisClientWrapper(Plugin owner, String host) {
         super(owner, host);
     }
 
@@ -24,7 +25,7 @@ public class BukkitClientWrapper extends RedisClientWrapper<JavaPlugin> {
      * @param host The hostname/IP of the redis server to connect to
      * @param port The port of the redis server to connect to, default is 6379
      */
-    public BukkitClientWrapper(JavaPlugin owner, String host, int port) {
+    public BungeeRedisClientWrapper(Plugin owner, String host, int port) {
         super(owner, host, port);
     }
 
@@ -34,7 +35,7 @@ public class BukkitClientWrapper extends RedisClientWrapper<JavaPlugin> {
      * @param host The hostname/IP of the redis server to connect to
      * @param password The password of the redis server, or null if there is no password
      */
-    public BukkitClientWrapper(JavaPlugin owner, String host, String password) {
+    public BungeeRedisClientWrapper(Plugin owner, String host, String password) {
         super(owner, host, password);
     }
 
@@ -45,7 +46,7 @@ public class BukkitClientWrapper extends RedisClientWrapper<JavaPlugin> {
      * @param port The port of the redis server to connect to, default is 6379
      * @param password The password of the redis server, or null if there is no password
      */
-    public BukkitClientWrapper(JavaPlugin owner, String host, int port, String password) {
+    public BungeeRedisClientWrapper(Plugin owner, String host, int port, String password) {
         super(owner, host, port, password);
     }
 
@@ -57,7 +58,7 @@ public class BukkitClientWrapper extends RedisClientWrapper<JavaPlugin> {
      * @param password The password of the redis server, or null if there is no password
      * @param database The database that should be connected to on the redis server, default is 0
      */
-    public BukkitClientWrapper(JavaPlugin owner, String host, int port, String password, int database) {
+    public BungeeRedisClientWrapper(Plugin owner, String host, int port, String password, int database) {
         super(owner, host, port, password, database);
     }
 
@@ -70,7 +71,7 @@ public class BukkitClientWrapper extends RedisClientWrapper<JavaPlugin> {
      * @param database The database that should be connected to on the redis server, default is 0
      * @param options Any special options that should be included in the redis URL. Format for each option should be "option=value", default is null (no options)
      */
-    public BukkitClientWrapper(JavaPlugin owner, String host, int port, String password, int database, String... options) {
+    public BungeeRedisClientWrapper(Plugin owner, String host, int port, String password, int database, String... options) {
         super(owner, host, port, password, database, options);
     }
 }

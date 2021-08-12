@@ -10,9 +10,9 @@ import java.util.concurrent.TimeUnit;
  * A wrapper designed to simplify receiving messages from redis PubSub. Handling of asynchronous message receiving to synchronous method calling is done automatically. The {@link RedisListenerWrapper#messageReceived(String)} method is called synchronously. This class should only be used with BungeeCord plugins.
  * @see RedisListenerWrapper
  */
-public abstract class BungeeListenerWrapper extends RedisListenerWrapper<Plugin> {
+public abstract class BungeeRedisListenerWrapper extends RedisListenerWrapper<Plugin> {
 
-    public BungeeListenerWrapper(String channel) {
+    public BungeeRedisListenerWrapper(String channel) {
         super(channel);
     }
 

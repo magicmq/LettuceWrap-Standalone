@@ -8,9 +8,9 @@ import org.bukkit.plugin.java.JavaPlugin;
  * A wrapper designed to simplify receiving messages from redis PubSub. Handling of asynchronous message receiving to synchronous method calling is done automatically. The {@link RedisListenerWrapper#messageReceived(String)} method is called synchronously. This class should only be used with Bukkit plugins.
  * @see RedisListenerWrapper
  */
-public abstract class BukkitListenerWrapper extends RedisListenerWrapper<JavaPlugin> {
+public abstract class BukkitRedisListenerWrapper extends RedisListenerWrapper<JavaPlugin> {
 
-    public BukkitListenerWrapper(String channel) {
+    public BukkitRedisListenerWrapper(String channel) {
         super(channel);
     }
 
